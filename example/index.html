@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title>popup.js usage example</title>
+	<meta charset="utf-8" />
+</head>
+
+<body>
+
+<button id="btn">simple example</button>
+<button id="btn2">open menu 2</button>
+
+<div id="anchor" style="width: 200px; margin:30px; background-color:yellow;">anchor</div>
+
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="../popup-min.js"></script>
+
+<script>
+	
+	$('#btn').click(function() {
+		$('<div style="line-height:60px;">popup.js</div>').popup( $(this) ).fadeIn();
+	});
+	
+	$('#btn2').click(function() {
+		var popupEl = 
+		$('<div style="line-height:60px;">test popup2</div>').popup( $('#anchor') , {
+			//options
+			hideEffect: 'slideUp',	//default: 'fadeOut'
+			hideOption: 'slow',		//default: 'fast'
+			width: '140px',			//default: null
+			height: '100px',		//default: null
+			style: 'background-color:tomato; box-shadow: 0px 0px 6px #ccc; border:1px solid #ddd;'	//default: 'background-color:white; box-shadow: 0px 0px 6px #ccc; border:1px solid #ddd;'
+		}
+		).slideDown('slow');
+	});
+	
+	//close function:
+	//popupEl.popup('close')
+</script>
+
+<a href="https://github.com/Jakilid/popup.js">project github page</a>
+</body>
+</html>
